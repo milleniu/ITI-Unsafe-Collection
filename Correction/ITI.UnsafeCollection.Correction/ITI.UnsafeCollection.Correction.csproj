@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>ITI.UnsafeCollection</AssemblyName>
+        <RootNamespace>ITI.UnsafeCollection</RootNamespace>
+    </PropertyGroup>
+
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="xcopy $(TargetPath) $(SolutionDir)\..\ITI.UnsafeCollection\$(OutDir) /e /y" />
+    </Target>
+
+</Project>
