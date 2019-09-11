@@ -56,7 +56,7 @@ namespace ITI.UnsafeCollection._1_LinkedList
         public IntegerLinkedList( IEnumerable<int> collection )
         {
             foreach( var value in collection )
-                Add( value );
+                AddLast( value );
         }
 
         public void Clear()
@@ -65,7 +65,17 @@ namespace ITI.UnsafeCollection._1_LinkedList
             Last = null;
         }
 
-        public void Add( int value )
+        public void AddFirst( int value )
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddFirst( Node* ptr )
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLast( int value )
         {
             if( First == null )
             {
@@ -77,6 +87,11 @@ namespace ITI.UnsafeCollection._1_LinkedList
                 Last->Next = Node.NewPinnedNode( value );
                 Last = Last->Next;
             }
+        }
+
+        public void AddLast( Node* ptr )
+        {
+            throw new NotImplementedException();
         }
 
         public bool Remove( int value )
@@ -119,6 +134,21 @@ namespace ITI.UnsafeCollection._1_LinkedList
             }
 
             return count;
+        }
+
+        public bool Contains( int i )
+        {
+            throw new NotImplementedException();
+        }
+
+        public Node* Find( int i )
+        {
+            throw new NotImplementedException();
+        }
+
+        public Node* FindLast( int i )
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -35,7 +35,22 @@ namespace ITI.UnsafeCollection._1_LinkedList
             throw new NotImplementedException();
         }
 
-        public void Add( int value )
+        public void AddFirst( int value )
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddFirst( Node* ptr )
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLast( int value )
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLast( Node* ptr )
         {
             throw new NotImplementedException();
         }
@@ -46,6 +61,21 @@ namespace ITI.UnsafeCollection._1_LinkedList
         }
 
         public int Count()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains( int i )
+        {
+            throw new NotImplementedException();
+        }
+
+        public Node* Find( int i )
+        {
+            throw new NotImplementedException();
+        }
+
+        public Node* FindLast( int i )
         {
             throw new NotImplementedException();
         }

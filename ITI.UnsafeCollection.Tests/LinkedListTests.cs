@@ -31,9 +31,9 @@ namespace ITI.UnsafeCollection.Tests
         {
             var linkedList = new IntegerLinkedList();
             const int a = 8, b = 16, c = 32;
-            linkedList.Add( a );
-            linkedList.Add( b );
-            linkedList.Add( c );
+            linkedList.AddLast( a );
+            linkedList.AddLast( b );
+            linkedList.AddLast( c );
 
             var first = linkedList.First;
             first->Value.Should().Be( a );
@@ -95,11 +95,10 @@ namespace ITI.UnsafeCollection.Tests
             linkedList.Remove( 1 );
             linkedList.Count().Should().Be( 1 );
 
-            linkedList.Add( 4 );
+            linkedList.AddLast( 4 );
             linkedList.Count().Should().Be( 2 );
 
-            linkedList.Remove( 3 );
-            linkedList.Remove( 4 );
+            linkedList.Clear();
             linkedList.Count().Should().Be( 0 );
         }
 
@@ -120,9 +119,7 @@ namespace ITI.UnsafeCollection.Tests
 
             linkedList.Invoking( sut => sut[ 4 ] ).Should().Throw<ArgumentOutOfRangeException>();
 
-            linkedList.Remove( 1 );
-            linkedList.Remove( 4 );
-            linkedList.Remove( 3 );
+            linkedList.Clear();
 
             linkedList.Invoking( sut => sut[ 0 ] ).Should().Throw<InvalidOperationException>();
         }
