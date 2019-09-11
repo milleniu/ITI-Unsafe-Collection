@@ -54,6 +54,10 @@ namespace ITI.UnsafeCollection._1_LinkedList
         {
             throw new NotImplementedException();
         }
+        public bool Remove( Node* ptr )
+        {
+            throw new NotImplementedException();
+        }
 
         public bool Remove( int value )
         {
