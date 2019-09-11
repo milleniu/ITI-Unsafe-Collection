@@ -159,7 +159,7 @@ namespace ITI.UnsafeCollection._1_LinkedList
             var current = First;
             while( current != null )
             {
-                if( current->Value == i ) return false;
+                if( current->Value == i ) return true;
                 current = current->Next;
             }
             return false;

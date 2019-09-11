@@ -10,7 +10,7 @@ namespace ITI.UnsafeCollection.Tests
     public unsafe class LinkedListTests
     {
         [Test]
-        public void _00_new_node_has_value_and_next_pointer_to_zero()
+        public void _00_new_node_has_its_value_set_and_next_pointer_set_to_null()
         {
             const int value = 3712;
             var ptr = Node.NewPinnedNode( value );
