@@ -1,18 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace ITI.UnsafeCollection._1_LinkedList
 {
-    public class LinkedList<T>
+    public unsafe class IntegerLinkedList
     {
-        private IntPtr linkedListPtr;
+        public Node* First { get; private set; } = null;
+        public Node* Last { get; private set; } = null;
 
-        public Node<T> First => throw new NotImplementedException();
-
-        public Node<T> Last => throw new NotImplementedException();
-
-        public Node<T> this[int i]
+        public int this[int i]
         {
             get
             {
@@ -24,22 +20,27 @@ namespace ITI.UnsafeCollection._1_LinkedList
             }
         }
         
-        public LinkedList()
+        public IntegerLinkedList()
         {
             throw new NotImplementedException();    
         }
 
-        public LinkedList( IEnumerable<T> collection )
+        public IntegerLinkedList( IEnumerable<int> collection )
         {
             throw new NotImplementedException();
         }
 
-        public void Add( T value )
+        public void Clear()
         {
             throw new NotImplementedException();
         }
 
-        public bool Remove( T value )
+        public void Add( int value )
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove( int value )
         {
             throw new NotImplementedException();
         }
