@@ -8,19 +8,19 @@ namespace ITI.UnsafeCollection._1_LinkedList
         public Node* First { get; private set; } = null;
         public Node* Last { get; private set; } = null;
 
-        public int this[ int i ]
+        public int this[int i]
         {
             get
             {
-                if (i < 0) throw new ArgumentException();
-                if (First == null) throw new InvalidOperationException();
+                if( i < 0 ) throw new ArgumentException();
+                if( First == null ) throw new InvalidOperationException();
 
                 var count = 0;
                 var current = First;
 
-                while (current != null)
+                while( current != null )
                 {
-                    if (count == i) return current->Value;
+                    if( count == i ) return current->Value;
                     current = current->Next;
                     count++;
                 }
@@ -28,17 +28,17 @@ namespace ITI.UnsafeCollection._1_LinkedList
                 throw new ArgumentOutOfRangeException();
 
             }
-            set 
+            set
             {
-                if (i < 0) throw new ArgumentException();
-                if (First == null) throw new InvalidOperationException();
+                if( i < 0 ) throw new ArgumentException();
+                if( First == null ) throw new InvalidOperationException();
 
                 var count = 0;
                 var current = First;
 
-                while (current != null)
+                while( current != null )
                 {
-                    if (count == i)
+                    if( count == i )
                     {
                         current->Value = value;
                         return;
@@ -67,12 +67,16 @@ namespace ITI.UnsafeCollection._1_LinkedList
 
         public void AddFirst( int value )
         {
-            throw new NotImplementedException();
+            var legacyFirst = First;
+            First = Node.NewPinnedNode( value );
+            First->Next = legacyFirst;
         }
 
         public void AddFirst( Node* ptr )
         {
-            throw new NotImplementedException();
+            var legacyFirst = First;
+            First = ptr;
+            First->Next = legacyFirst;
         }
 
         public void AddLast( int value )
@@ -91,7 +95,16 @@ namespace ITI.UnsafeCollection._1_LinkedList
 
         public void AddLast( Node* ptr )
         {
-            throw new NotImplementedException();
+            if( First == null )
+            {
+                First = ptr;
+                Last = First;
+            }
+            else
+            {
+                Last->Next = ptr;
+                Last = Last->Next;
+            }
         }
 
         public bool Remove( int value )
@@ -127,7 +140,7 @@ namespace ITI.UnsafeCollection._1_LinkedList
             var count = 0;
             var current = First;
 
-            while( current != null)
+            while( current != null )
             {
                 count++;
                 current = current->Next;
@@ -138,17 +151,37 @@ namespace ITI.UnsafeCollection._1_LinkedList
 
         public bool Contains( int i )
         {
-            throw new NotImplementedException();
+            var current = First;
+            while( current != null )
+            {
+                if( current->Value == i ) return false;
+                current = current->Next;
+            }
+            return false;
         }
 
         public Node* Find( int i )
         {
-            throw new NotImplementedException();
+            var current = First;
+            while( current != null )
+            {
+                if( current->Value == i ) return current;
+                current = current->Next;
+            }
+            return null;
         }
 
         public Node* FindLast( int i )
         {
-            throw new NotImplementedException();
+            var current = First;
+            Node* temp = null;
+            while( current != null )
+            {
+                if( current->Value == i ) temp = current;
+                current = current->Next;
+            }
+            return temp;
         }
     }
 }
+

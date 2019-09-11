@@ -123,5 +123,14 @@ namespace ITI.UnsafeCollection.Tests
 
             linkedList.Invoking( sut => sut[ 0 ] ).Should().Throw<InvalidOperationException>();
         }
+
+        [Test]
+        public void clear_should_be_empty() {
+            var linkedList = new IntegerLinkedList( new[] { 1, 2, 3 } );
+            linkedList.Clear();
+            (linkedList.First == null).Should().BeTrue();
+            (linkedList.Last == null).Should().BeTrue();
+            linkedList.Count().Should().Be( 0 );
+        }
     }
 }
