@@ -137,7 +137,30 @@ namespace ITI.UnsafeCollection._1_LinkedList
 
         public bool Remove( Node* ptr )
         {
-            throw new NotImplementedException();
+            if( First == null ) return false;
+
+            if( First == ptr )
+            {
+                First = First->Next;
+                if( First == null ) Last = null;
+                return true;
+            }
+
+            var last = First;
+            var current = First;
+
+            while( (current = current->Next) != null )
+            {
+                if( current == ptr )
+                {
+                    last->Next = current->Next;
+                    if( last->Next == null ) Last = last;
+                    return true;
+                }
+
+                last = current;
+            }
+            return false;
         }
 
         public int Count()
