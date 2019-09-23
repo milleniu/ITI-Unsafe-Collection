@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace ITI.UnsafeCollection._1_LinkedList
 {
@@ -14,7 +15,9 @@ namespace ITI.UnsafeCollection._1_LinkedList
 
         public static Node* NewPinnedNode( int value )
         {
-            throw new NotImplementedException();
+            var node = new Node( value );
+            var handle = GCHandle.Alloc( node, GCHandleType.Pinned );
+            return (Node*)handle.AddrOfPinnedObject().ToPointer();
         }
 
     }
